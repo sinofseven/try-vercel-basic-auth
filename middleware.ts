@@ -1,5 +1,10 @@
 import {NextRequest, NextResponse} from "next/server";
 import * as process from "process";
+
+export const config = {
+  matcher: ["/", "/session/:id*"]
+};
+
 export function middleware(req: NextRequest) {
   const basicAuth = req.headers.get('authorization');
   const url = req.nextUrl;
