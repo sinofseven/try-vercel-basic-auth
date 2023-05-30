@@ -1,8 +1,5 @@
-import {NextApiRequest, NextApiResponse} from "next";
+import {NextResponse} from "next/server";
 
-
-export default function handler(_: NextApiRequest, res: NextApiResponse) {
-  res.statusCode = 200;
-  res.setHeader('Content-Type', 'application/json')
-  res.end('{"msg": "test api"}')
+export function GET() {
+  return NextResponse.json({msg: 'test'})
 }
