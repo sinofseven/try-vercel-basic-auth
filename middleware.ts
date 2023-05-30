@@ -9,7 +9,8 @@ export default function middleware(req: NextRequest) {
     const [user, passwd] = atob(authValue).split(':');
 
     if (user === process.env.BASIC_USER && passwd === process.env.BASIC_PASSWD) {
-      return NextResponse.next();
+      // return NextResponse.next();
+      return new NextResponse("unauthorized", {status: 401});
     }
   }
   return new NextResponse("unauthorized", {status: 401});
