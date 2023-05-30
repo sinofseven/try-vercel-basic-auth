@@ -1,6 +1,6 @@
 import {NextRequest, NextResponse} from "next/server";
 import * as process from "process";
-export default function middleware(req: NextRequest) {
+export function middleware(req: NextRequest) {
   const basicAuth = req.headers.get('authorization');
   const url = req.nextUrl;
 
@@ -12,5 +12,5 @@ export default function middleware(req: NextRequest) {
       return NextResponse.next();
     }
   }
-  return new NextResponse("unauthorized", {status: 401});
+  return NextResponse.rewrite("/api/auth");
 }
