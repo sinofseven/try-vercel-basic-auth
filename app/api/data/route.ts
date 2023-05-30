@@ -1,5 +1,5 @@
 import {NextResponse} from "next/server";
 
-export function GET() {
+export async function GET() {
   return NextResponse.json({msg: 'test'}, {headers: {'content-type': 'application/json'}})
 }
